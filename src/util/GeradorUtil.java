@@ -21,8 +21,8 @@ public class GeradorUtil {
         return senha;
 
     }
-    
-    public String gerarCpf(){
+
+    public String gerarCpf() {
         return gerarNumero(3) + "." + gerarNumero(3) + "." + gerarNumero(3) + "." + "-" + gerarNumero(2);
     }
 
@@ -31,10 +31,60 @@ public class GeradorUtil {
         return numero;
     }
 
+    public String gerarCnpj() {
+        return gerarNumero(2) + "." + gerarNumero(3) + "." + gerarNumero(3) + "/0001" + "-" + gerarNumero(2);
+
+    }
+
+    public String gerarTelefone() {
+        return "(48)3" + gerarNumero(3) + "-" + gerarNumero(4);
+    }
+
+    public String gerarCelular() {
+        return "(48)9" + gerarNumero(4) + "-" + gerarNumero(4);
+    }
+
+    public String gerarCep() {
+        return gerarNumero(5) + "-" + gerarNumero(3);
+    }
+
+    public String gerarNome() {
+        String[] nomes = {"João", "Maria", "Pedro", "Paulo", "José", "Ana", "Carlos", "Patrícia", "Ivan", "Juliana", "Cleide", "Marizete", "Paula",
+            "Marcos", "Diodio", "Diego", "Alex", "Jéssica", "Melissa", "Carmem", "Hugo", "Mariele"};
+
+        int indice = (int) (Math.random() * nomes.length);
+
+        return nomes[indice] + " " + gerarSobrenome();
+
+    }
+
+    private String gerarSobrenome() {
+        String[] sobreNomes = {"Silva", "Motta", "Oliveira", "Abravaneu", "Mendes", "Pereira", "Pires", "Ribeiro", "Santos", "Panizzi", "Souza", "Mattos", "Pinto",
+            "Almeida", "Alves", "Fontes", "Carvalho", "Inácio", "Colombo", "Saraiva", "Mendes", "Brasil"};
+        int indice = (int) (Math.random() * sobreNomes.length);
+        return sobreNomes[indice];
+
+    }
+
     public static void main(String[] args) {
         GeradorUtil util = new GeradorUtil();
-        String cpf = util.gerarCpf();
-        System.out.println("CPF" + cpf);
+
+        System.out.println("Cpf " + util.gerarCpf());
+
+        System.out.println("Salário " + util.gerarSalario());
+
+        System.out.println("Cpnj " + util.gerarCnpj());
+
+        System.out.println("Telefone " + util.gerarTelefone());
+
+        System.out.println("Celular " + util.gerarCelular());
+
+        System.out.println("Cep " + util.gerarCep());
+
+        System.out.println("Nome: " + util.gerarNome());
+
+       
+
     }
 
 }
