@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula_01;
+package entidade;
 
 /**
  *
@@ -12,14 +12,12 @@ package aula_01;
 public class Aluno {
 
     private String nome;
-    private String sobrenome;
     private String idade;
     private String telefone;
     private float salario;
     private String logradouro;
     private String numero;
     private String bairro;
-    private boolean trabalha;
     private long cpf;
 
     public void setNome(String nome) {
@@ -28,15 +26,6 @@ public class Aluno {
 
     public String getNome() {
         return nome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
     }
 
     public void setIdade(String idade) {
@@ -64,5 +53,44 @@ public class Aluno {
 
     public Float getSalario() {
         return salario;
+    }
+
+    public void setLogradouro(Float logardouro) {
+        this.logradouro = logradouro;
+
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setBairro(String numero) {
+        this.numero = numero;
+
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setCpf(Long cpf) {
+        this.cpf = cpf;
+
+    }
+
+    public Long getCpf() {
+        return cpf;
+    }
+    public static void main(String[] args) {
+        
     }
 }

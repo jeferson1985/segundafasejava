@@ -20,7 +20,7 @@ public class Media {
 public class Aula {
 
     public static void main(String[] args) {
-        int qtdeMediasSomadas;
+        int qtdeMediasSomadas = 0;
 
         Scanner sc = new Scanner(System.in);
         int turma = sc.nextInt();

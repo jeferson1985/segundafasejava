@@ -5,9 +5,6 @@
  */
 package util;
 
-import java.util.Scanner;
-
-
 /**
  *
  * @author jeferson.jesus
@@ -69,9 +66,8 @@ public class GeradorUtil {
 
     }
 
-}
+    public static void main(String[] args) {
 
-public class static void main(String[] args){
         GeradorUtil util = new GeradorUtil();
 
         System.out.println("Cpf " + util.gerarCpf());
@@ -88,12 +84,7 @@ public class static void main(String[] args){
 
         System.out.println("Nome: " + util.gerarNome());
 
-       
-
-
-
-
+    }
 }
 
-}
 

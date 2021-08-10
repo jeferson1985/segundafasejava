@@ -5,7 +5,7 @@
  */
 package teste;
 
-import aula_01.Aluno;
+import entidade.Aluno;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,8 +18,8 @@ public class TestaAluno {
         String nome = JOptionPane.showInputDialog("Digite o nome do aluno:");
         aluno.setNome(nome);
         
-        String sobrenome = JOptionPane.showInputDialog("Digite o sobrenome do aluno:");
-        aluno.setSobrenome(sobrenome);
+        /*String sobrenome = JOptionPane.showInputDialog("Digite o sobrenome do aluno:");
+        aluno.setSobrenome(sobrenome);*/
         
         String idade = JOptionPane.showInputDialog("Digite o idade  do aluno:");
         aluno.setIdade(idade);
@@ -32,7 +32,7 @@ public class TestaAluno {
 
         
         System.out.println("Nome" + aluno.getNome());
-        System.out.println("Sobrenome" + aluno.getSobrenome());
+        /*System.out.println("Sobrenome" + aluno.getSobrenome());*/
         System.out.println("Idade" + aluno.getIdade());
         System.out.println("Telefone" + aluno.getTelefone());
         System.out.println("Salario" + aluno.getSalario());
