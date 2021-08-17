@@ -21,8 +21,8 @@ public class TestaAluno {
         /*String sobrenome = JOptionPane.showInputDialog("Digite o sobrenome do aluno:");
         aluno.setSobrenome(sobrenome);*/
         
-        String idade = JOptionPane.showInputDialog("Digite o idade  do aluno:");
-        aluno.setIdade(idade);
+ //       String idade = JOptionPane.showInputDialog("Digite o idade  do aluno:");
+ //       aluno.setIdade(idade);
         
         String telefone = JOptionPane.showInputDialog("Digite o telefone  do aluno:");
         aluno.setTelefone(telefone);
