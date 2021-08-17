@@ -143,7 +143,7 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         aluno = new Aluno();
-        boolean erro = carregarAluno();
+        boolean erro = validarFormulario();
         if (!erro) {
 
         }
@@ -154,51 +154,35 @@ public class CadastroAluno extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    private boolean carregarAluno() {
-        boolean temErro = false;
-        
+    private boolean validarFormulario() {
         String nome = varNome.getText().trim();
-        temErro = validarCampo3valor(nome);
-        if(!temErro){
-            aluno.setNome(nome);
-        }else {
+        if (validarCampo3valor(nome)) {
+            JOptionPane.showMessageDialog(null, "Digite um valor válido");
             return true;
         }
 
-        return temErro;
+        if (validarIdade()) {
+            JOptionPane.showMessageDialog(null, "Digite uma idade correta!");
+        }
+        return false;
     }
-    
-    
 
     private boolean validarCampo3valor(String valor) {
-        boolean temErro = false;
-        if (valor.length() >= 3) {
-            aluno.setNome(valor);
-        } else {
-            temErro = true;
-            JOptionPane.showMessageDialog(null, "Digite um valor válido");
-        }
-        return temErro;
+        return valor.length() < 3;
+
     }
 
     private boolean validarIdade() {
-        boolean temErro = false;
         String Idade = varIdade.getText().trim();
         if (idade.equals("")) {
-            temErro = true;
-            JOptionPane.showMessageDialog(null, "Digite uma idade correta!");
+            return true;
 
         } else {
             int valorIdade = Integer.parseInt(Idade);
-            if (valorIdade <= 16 || valorIdade > 100) {
-                temErro = true;
-                JOptionPane.showMessageDialog(null, "Digite uma idade correta!");
+            return valorIdade <= 16 || valorIdade > 100; 
 
-            } else {
-                aluno.setIdade(valorIdade);
-            }
         }
-        return temErro;
+
     }
 
     public static void main(String args[]) {
