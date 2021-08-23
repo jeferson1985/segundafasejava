@@ -47,8 +47,12 @@ public class CadastroAluno extends javax.swing.JFrame {
         lb_bairro = new javax.swing.JLabel();
         lb_salario = new javax.swing.JLabel();
         varLogradouro = new javax.swing.JTextField();
-        lb_logradiouro = new javax.swing.JLabel();
+        lb_numero = new javax.swing.JLabel();
         varBairro = new javax.swing.JTextField();
+        lb_logradiouro1 = new javax.swing.JLabel();
+        varNumero = new javax.swing.JTextField();
+        lb_cpf = new javax.swing.JLabel();
+        varCpf = new javax.swing.JFormattedTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,6 +80,12 @@ public class CadastroAluno extends javax.swing.JFrame {
         lb_nome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lb_nome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lb_nome.setText("Nome:");
+
+        varNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                varNomeActionPerformed(evt);
+            }
+        });
 
         btnSalvar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSalvar.setText("Salvar");
@@ -122,13 +132,44 @@ public class CadastroAluno extends javax.swing.JFrame {
         lb_salario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lb_salario.setText("Salário:");
 
-        lb_logradiouro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lb_logradiouro.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lb_logradiouro.setText("Logradouro:");
+        varLogradouro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                varLogradouroActionPerformed(evt);
+            }
+        });
+
+        lb_numero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lb_numero.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lb_numero.setText("Número:");
 
         varBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 varBairroActionPerformed(evt);
+            }
+        });
+
+        lb_logradiouro1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lb_logradiouro1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lb_logradiouro1.setText("Logradouro:");
+
+        varNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                varNumeroActionPerformed(evt);
+            }
+        });
+
+        lb_cpf.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lb_cpf.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lb_cpf.setText("Cpf");
+
+        try {
+            varCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        varCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                varCpfActionPerformed(evt);
             }
         });
 
@@ -139,33 +180,44 @@ public class CadastroAluno extends javax.swing.JFrame {
             .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(principalLayout.createSequentialGroup()
                 .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lb_bairro, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(lb_idade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(principalLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(lb_nome, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))
                     .addComponent(telefone_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_logradiouro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                    .addComponent(lb_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(varNome)
                     .addGroup(principalLayout.createSequentialGroup()
-                        .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(varIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(varTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(varSalario, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnSalvar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
+                        .addGap(38, 38, 38)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(principalLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(varLogradouro)
-                            .addGroup(principalLayout.createSequentialGroup()
-                                .addComponent(varBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 67, Short.MAX_VALUE)))
+                            .addComponent(varTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(varSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(varIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(varNome))
                         .addContainerGap())))
+            .addGroup(principalLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lb_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lb_logradiouro1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lb_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lb_bairro, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(varLogradouro)
+                    .addGroup(principalLayout.createSequentialGroup()
+                        .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(varBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(varNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(varCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 68, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         principalLayout.setVerticalGroup(
             principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,26 +239,35 @@ public class CadastroAluno extends javax.swing.JFrame {
                 .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(varSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                .addGap(25, 25, 25)
                 .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(varLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_logradiouro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lb_logradiouro1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(varNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_bairro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(varBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(varCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +283,7 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         boolean erro = validarFormulario();
         if (!erro) {
-
+             JOptionPane.showMessageDialog(null, "Salvo com sucesso");
         }
 
 
@@ -239,6 +300,22 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void varBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varBairroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_varBairroActionPerformed
+
+    private void varLogradouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varLogradouroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_varLogradouroActionPerformed
+
+    private void varNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_varNumeroActionPerformed
+
+    private void varCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_varCpfActionPerformed
+
+    private void varNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_varNomeActionPerformed
     /**/
     /**
      * @param args the command line arguments
@@ -275,7 +352,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Digite um número coreto!");
             return true;
         }
-        
+
         String bairro = varBairro.getText().trim();
         if (validarCampo3valor(bairro)) {
             JOptionPane.showMessageDialog(null, "Digite um bairro coreto!");
@@ -319,13 +396,14 @@ public class CadastroAluno extends javax.swing.JFrame {
     }
 
     private boolean validarNumero() {
-        String logradouro = varLogradouro.getText().trim();
-        return false;
+        String numero = varNumero.getText().trim();
+        return numero.equals("") || numero.equals("0");
     }
 
     private boolean validarCpf() {
-        String logradouro = varLogradouro.getText().trim();
-        return false;
+        String cpf = varCpf.getText();
+        char indice = cpf.charAt(0);
+        return indice == ' ';
     }
 
     public static void main(String args[]) {
@@ -365,17 +443,21 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lb_bairro;
+    private javax.swing.JLabel lb_cpf;
     private javax.swing.JLabel lb_idade;
-    private javax.swing.JLabel lb_logradiouro;
+    private javax.swing.JLabel lb_logradiouro1;
     private javax.swing.JLabel lb_nome;
+    private javax.swing.JLabel lb_numero;
     private javax.swing.JLabel lb_salario;
     private javax.swing.JPanel principal;
     private javax.swing.JLabel telefone_label1;
     private javax.swing.JLabel titulo;
     private javax.swing.JTextField varBairro;
+    private javax.swing.JFormattedTextField varCpf;
     private javax.swing.JFormattedTextField varIdade;
     private javax.swing.JTextField varLogradouro;
     private javax.swing.JTextField varNome;
+    private javax.swing.JTextField varNumero;
     private javax.swing.JFormattedTextField varSalario;
     private javax.swing.JFormattedTextField varTelefone;
     // End of variables declaration//GEN-END:variables
